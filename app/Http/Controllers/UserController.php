@@ -30,6 +30,11 @@ class UserController extends Controller
 
     public function JWT()
     {
+        //http://www.koukousky.com/back/2483.html
+
+        //composer require lcobucci/jwt
+
+
         $builder = new Builder();
         $signer  = new Sha256();
 
@@ -125,7 +130,91 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /**
+         * 数组转树结构
+         * @param $list
+         * @param $pk //当前节点
+         * @param $pid //父节点
+         * @param string $child 孩子节点
+         * @return array
+         */
+        function arrayToTree($list, $pk, $pid, $child = 'children')
+        {
+            $tree = array();
+            if (!is_array($list)) {
+                return $tree;
+            }
+            $refer = array();
+            $parentNodeIdArr = [];
+            foreach ($list as $key => $data) {
+                $refer[$data[$pk]] = &$list[$key];
+                $parentNodeIdArr[$data[$pid]] = $data[$pid];
+            }
+            /* 寻找根结点 */
+            foreach ($list as $key => $data) {
+                if (in_array($data[$pk], $parentNodeIdArr)) {
+                    unset($parentNodeIdArr[$data[$pk]]);
+                }
+            }
+            foreach ($list as $key => $data) {
+                $parantId = $data[$pid];
+                if (in_array($parantId, $parentNodeIdArr)) {
+                    $tree[] = &$list[$key];
+                } else {
+                    if (isset($refer[$parantId])) {
+                        $parent = &$refer[$parantId];
+                        $parent[$child][] = &$list[$key];
+                    }
+                }
+            }
+            return $tree;
+        }
+
+        /**
+         * service层调用
+         * @param array $where
+         * @return array
+         */
+        function getMenuTree($where = null){
+        // 把所有的栏目都查出来
+        $list = [
+                    [
+                        "id" =>1,
+                        "pid" =>0,
+                        "title" =>12,
+                        "icon" =>8,
+                        "sort" =>1,
+                        "url" =>13,
+                        "url_type" =>6,
+                        "url_param" =>null
+                    ],
+                    [
+                        "id" => 5,
+                        "pid" => 1,
+                        "title" => 12,
+                        "icon" => 11,
+                        "sort" => 1,
+                        "url" => 13,
+                        "url_type" => 6,
+                        "url_param" => null
+                    ],
+                    [
+                        "id" => 7,
+                        "pid" => 2,
+                        "title" => 12,
+                        "icon" => 9,
+                        "sort" => 1,
+                        "url" => 10,
+                        "url_type" => 6,
+                        "url_param" => null
+                    ]
+  ];
+
+        // 把数据转成树结构
+        return arrayToTree($list,'id','pid');
+    }
+
+
     }
 
     /**
