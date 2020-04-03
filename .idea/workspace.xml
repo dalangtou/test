@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63c7a1cb-f235-4a9a-a2e0-2dd6be5220d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/routes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +130,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585880178886</updated>
-      <workItem from="1585880180150" duration="6539000" />
+      <workItem from="1585880180150" duration="15140000" />
     </task>
     <servers />
   </component>
@@ -139,10 +138,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="636" y="258" width="647" height="524" key="find.popup" timestamp="1585881477812">
+    <state x="636" y="258" width="647" height="524" key="find.popup" timestamp="1585903037534">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="636" y="258" width="647" height="524" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585881477812" />
+    <state x="636" y="258" width="647" height="524" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585903037534" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585881480834">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

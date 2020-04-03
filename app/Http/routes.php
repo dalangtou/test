@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('user/index', 'UserController@index');
 Route::get('user/jwt', 'UserController@JWT');
 Route::get('user/verify_token', 'UserController@verifyToken');
+
+Route::get('work_man/start', 'WorkerManController@start');
