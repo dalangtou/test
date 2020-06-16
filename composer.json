@@ -8,7 +8,11 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "doctrine/dbal": "2.5.*",
-        "lcobucci/jwt": "^3.3"
+        "lokielse/omnipay-alipay": "^3.0",
+        "lokielse/omnipay-wechatpay": "^3.0",
+        "kuangjy/omnipay-qpay": "^3.0",
+        "lcobucci/jwt": "^3.3",
+        "qiniu/php-sdk": "^7.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

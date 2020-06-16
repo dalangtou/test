@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Workerman\Worker;
 
 
 class WorkerManController extends Controller
@@ -13,8 +14,8 @@ class WorkerManController extends Controller
 //        require_once ($path.'Worker.php');
 
         // 创建一个Worker监听2346端口，使用websocket协议通讯
-        $ws_worker =  \App\Vendor\Worker::UI_SAFE_LENGTH;
-
+        $ws_worker = Worker::VERSION;
+dd($ws_worker);
         // 启动4个进程对外提供服务
         $ws_worker->count = 4;
 

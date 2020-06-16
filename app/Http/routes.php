@@ -20,3 +20,6 @@ Route::get('user/jwt', 'UserController@JWT');
 Route::get('user/verify_token', 'UserController@verifyToken');
 
 Route::get('work_man/start', 'WorkerManController@start');
+
+
+Route::get('hook/test1', 'HookController@test');
