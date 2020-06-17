@@ -12,7 +12,8 @@
         "lokielse/omnipay-wechatpay": "^3.0",
         "kuangjy/omnipay-qpay": "^3.0",
         "lcobucci/jwt": "^3.3",
-        "qiniu/php-sdk": "^7.2"
+        "qiniu/php-sdk": "^7.2",
+        "pusher/pusher-php-server": "~3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -5,4 +5,4 @@ Homestead.yaml
 Homestead.json
 /vendor
 /.idea
-
+composer.lock
