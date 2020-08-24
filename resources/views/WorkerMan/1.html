@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+  <title>Test</title>
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+  </script>
+  <!-- <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('462bd16697e1a61c30f6', {
+      cluster: 'ap1',
+      encrypted: true
+    });
+
+    // alert('hello !');
+
+    var channel = pusher.subscribe('my-channel');
+    console.log(pusher);
+    channel.bind('PusherEvent', function(data) {
+      alert(data.message);
+    });
+  </script> -->
+</head>
+<body>
+  <form action="" method="get">
+  <p>To User: <input id=u1 type="text" name="fname" /></p>
+  <p>Message: <input id=m1 type="text" name="mname" /></p>
+  <button onclick="myFunction1()" type="button" >发送</button>
+  </form>
+
+<!--  <form action="" method="get">-->
+<!--  <p>To User: <input id=u2 type="text" name="fname" /></p>-->
+<!--  <p>Message: <input id=m2 type="text" name="mname" /></p>-->
+<!--  <button onclick="myFunction2()" type="button" >发送</button>-->
+<!--  </form>-->
+
+<!--  <form action="" method="get">-->
+<!--  <p>To User: <input id=u3 type="text" name="fname" /></p>-->
+<!--  <p>Message: <input id=m3 type="text" name="mname" /></p>-->
+<!--  <button onclick="myFunction3()" type="button" >发送</button>-->
+<!--  </form>-->
+
+</body>
+<script type="text/javascript">
+
+    var My_uid = random(100,999);
+    // 假设服务端ip为127.0.0.1
+    ws = new WebSocket("ws://127.0.0.1:2000");
+    ws.onopen = function() {
+        alert("连接成功");
+        var info = {};
+        info['name']='tom';
+        info['type']=0;
+        info['i']=My_uid;
+        console.log(info);
+
+        data= JSON.stringify( info );
+        ws.send(data);
+        alert("给服务端发送一个字符串："+data);
+    };
+    ws.onmessage = function(e) {
+      console.log(e.data);
+        alert("收到服务端的消息：" + e.data);
+    };
+
+    //随机用户id //后续token验权
+    function random(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    function checkWS() {
+      if (ws.readyState === WebSocket.OPEN) {
+        return true;
+      }
+      return false;
+    }
+
+    function myFunction1() {
+      if(checkWS()){
+        // alert("成功");
+      }else{
+        alert("socket 连接失败");
+        return false;
+      }
+
+      var uid = $('#u1').val();
+      var message = $('#m1').val();
+
+      var info = {};
+      info['type']=1;
+      info['message']=message;
+      info['i']=My_uid;
+      info['to_uid']=uid;
+      // console.log(info);
+      ws_send(info);
+    }
+
+    function ws_send(message) {
+      message = JSON.stringify( message );
+      ws.send(message);
+    }
+
+
+
+    
+</script>

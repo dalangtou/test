@@ -13,7 +13,9 @@
         "kuangjy/omnipay-qpay": "^3.0",
         "lcobucci/jwt": "^3.3",
         "qiniu/php-sdk": "^7.2",
-        "pusher/pusher-php-server": "~3.0"
+        "pusher/pusher-php-server": "~3.0",
+        "jaeger/querylist": "^4.2",
+        "workerman/workerman": "^3.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

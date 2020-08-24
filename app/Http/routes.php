@@ -19,7 +19,12 @@ Route::get('user/index', 'UserController@index');
 Route::get('user/jwt', 'UserController@JWT');
 Route::get('user/verify_token', 'UserController@verifyToken');
 
-Route::get('work_man/start', 'WorkerManController@start');
+//Route::get('work_man/start', 'WorkerManController@start');//console 中开启
+Route::get('work_man/message', 'WorkerManController@message');
+
+Route::get('queryList/act', 'QueryListController@act');
+
+Route::get('workerman/message', 'WorkermanController@message');
 
 
 Route::get('hook/test1', 'HookController@test');
