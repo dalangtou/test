@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
+use Workerman\Lib\Timer;
 use Workerman\Worker;
 
 class Workerman extends Command
@@ -14,6 +15,9 @@ class Workerman extends Command
      * @var string
      */
     protected $signature = 'command:workerman';
+
+    //心跳间距  超过服务器主动断开连接
+    const HEARTBEAT_TIME = 60;
 
     /**
      * The console command description.
@@ -78,9 +82,20 @@ class Workerman extends Command
 //            // 向客户端发送hello $data
 //            $connection->send('hello ' . $data['name']);
 //        };
+        $this->worker->sphygmus = [];
 
         $this->worker->onWorkerStart = function($worker)
         {
+            //心跳检测定时器
+            Timer::add(10,function($worker){
+                foreach ($worker->sphygmus as $uid => $time){
+                    if (time() - $time > self::HEARTBEAT_TIME) {
+                        $worker->uidConnections[$uid]->close();
+                        unset($worker->sphygmus[$uid],$worker->uidConnections[$uid]);
+                    }
+                }
+            },array($worker));
+
             // 开启一个内部端口，方便内部系统推送数据，Text协议格式 文本+换行符
             $inner_text_worker = new Worker('text://0.0.0.0:5678');
             $inner_text_worker->onMessage = function($connection, $buffer) use($worker)
@@ -134,7 +149,7 @@ class Workerman extends Command
 //                return;
                     }
 
-                    $this->worker->sphygmus[$uid] = time()+60; // 脚本每隔55s 请求一次  60s无响应自动断开
+                    $this->worker->sphygmus[$uid] = time(); // 脚本每隔55s 请求一次  60s无响应自动断开
 
                     break;
                 case 1://用户之间聊天

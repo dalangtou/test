@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63c7a1cb-f235-4a9a-a2e0-2dd6be5220d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WorkerManController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WorkerManController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/vendor/Workerman/Worker.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/vendor/Workerman/Worker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/Workerman.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/Workerman.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/WorkerMan/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/WorkerMan/1.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +172,7 @@
       <workItem from="1587604031465" duration="432000" />
       <workItem from="1597288970307" duration="5005000" />
       <workItem from="1597826181541" duration="4658000" />
-      <workItem from="1597886727504" duration="23494000" />
+      <workItem from="1597886727504" duration="31788000" />
     </task>
     <servers />
   </component>
@@ -196,13 +188,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597887963865" />
+    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598349690605">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598349690605" />
     <state x="636" y="260" width="786" height="590" key="find.popup" timestamp="1597905144508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="636" y="260" width="786" height="590" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597905144508" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598251262284">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598345155348">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598251262284" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598345155348" />
   </component>
 </project>

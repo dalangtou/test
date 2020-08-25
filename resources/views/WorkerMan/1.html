@@ -30,11 +30,11 @@
   <button onclick="myFunction1()" type="button" >发送</button>
   </form>
 
-<!--  <form action="" method="get">-->
-<!--  <p>To User: <input id=u2 type="text" name="fname" /></p>-->
-<!--  <p>Message: <input id=m2 type="text" name="mname" /></p>-->
-<!--  <button onclick="myFunction2()" type="button" >发送</button>-->
-<!--  </form>-->
+  <form action="" method="get">
+  <p>To User: <input id=u2 type="text" name="fname" /></p>
+  <p>Message: <input id=m2 type="text" name="mname" /></p>
+  <button onclick="myFunction2()" type="button" >发送</button>
+  </form>
 
 <!--  <form action="" method="get">-->
 <!--  <p>To User: <input id=u3 type="text" name="fname" /></p>-->
@@ -46,19 +46,24 @@
 <script type="text/javascript">
 
     var My_uid = random(100,999);
+    console.log(My_uid);
     // 假设服务端ip为127.0.0.1
     ws = new WebSocket("ws://127.0.0.1:2000");
     ws.onopen = function() {
         alert("连接成功");
         var info = {};
-        info['name']='tom';
         info['type']=0;
         info['i']=My_uid;
-        console.log(info);
 
-        data= JSON.stringify( info );
-        ws.send(data);
-        alert("给服务端发送一个字符串："+data);
+      ws_send(info);
+
+      //开启心跳
+      var Timer_work = setInterval(function () {
+        console.log(JSON.stringify( info ));
+        ws_send(info);
+      }, 55000);
+
+      //   alert("给服务端发送一个字符串："+data);
     };
     ws.onmessage = function(e) {
       console.log(e.data);
@@ -102,7 +107,14 @@
       ws.send(message);
     }
 
+    function myFunction2() {
+      close_work();
+    }
 
+    function close_work() {
+      clearInterval(Timer_work);
+      ws.close()
+    }
 
     
 </script>
