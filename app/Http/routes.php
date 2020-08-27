@@ -26,5 +26,10 @@ Route::get('queryList/act', 'QueryListController@act');
 
 Route::get('workerman/message', 'WorkermanController@message');
 
+Route::get('elasticsearch/action', 'ElasticsearchController@action');
+Route::get('elasticsearch/set', 'ElasticsearchController@set');
+Route::get('elasticsearch/del', 'ElasticsearchController@del');
+Route::get('elasticsearch/get', 'ElasticsearchController@get');
+
 
 Route::get('hook/test1', 'HookController@test');

@@ -33,21 +33,32 @@ class WorkerManController extends Controller
 //        Worker::runAll();
 //    }
 
-    public function message(Request $request)
+    public function message1(Request $request)
     {
         $message = $request->input('info');
         $uid = $request->input('uid');
 
-// 建立socket连接到内部推送端口
-        $client = stream_socket_client('tcp://127.0.0.1:5678', $errno, $errmsg, 1);
-// 推送的数据，包含uid字段，表示是给这个uid推送
-        $data = array('percent'=>'88%');
-        if($uid) $data['uid'] = $uid;
-// 发送数据，注意5678端口是Text协议的端口，Text协议需要在数据末尾加上换行符
-        fwrite($client, json_encode($data)."\n");
-// 读取推送结果
-        echo fread($client, 8192);
+        $data['info'] = $message;
+
+        SendToWork($data, $uid);
 
         return [200,'success'];
+    }
+
+    public function message()
+    {
+        $arg1 = 'first';
+        $arg2 = 'two';
+        $return = call_user_func(function(){
+            $arg = func_get_arg(0); //func_get_arg函数作用：获取函数的第几个参数，必须要有参数，参数必须为函数参数的偏移量，0代表第一个参数
+            $args = func_get_args();//func_get_args的作用：获取函数所有的参数
+            if(func_num_args() == 1){//func_num_args函数的作用：获取函数参数的个数，注意，假如函数没有传参，该函数返回0
+                return $args[0];
+            }else{
+                //用|把函数的参数组织成字符串
+                return implode('|',$args);
+            }
+        },$arg1,$arg2);
+        var_dump($return);
     }
 }

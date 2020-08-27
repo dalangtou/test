@@ -47,8 +47,26 @@
 
     var My_uid = random(100,999);
     console.log(My_uid);
-    // 假设服务端ip为127.0.0.1
-    ws = new WebSocket("ws://127.0.0.1:2000");
+
+    try {
+      // 假设服务端ip为127.0.0.1
+      ws = new WebSocket("ws://127.0.0.1:2000");
+    }catch (e) {
+      console.log(e)
+    }
+
+    //开启心跳
+    var Timer_work = setInterval(function () {
+      if(checkWS()){
+        var info = {};
+        info['type']=0;
+        info['i']=My_uid;
+
+        // console.log(JSON.stringify( info ));
+        ws_send(info);
+      }
+    }, 55000);
+
     ws.onopen = function() {
         alert("连接成功");
         var info = {};
@@ -56,13 +74,6 @@
         info['i']=My_uid;
 
       ws_send(info);
-
-      //开启心跳
-      var Timer_work = setInterval(function () {
-        console.log(JSON.stringify( info ));
-        ws_send(info);
-      }, 55000);
-
       //   alert("给服务端发送一个字符串："+data);
     };
     ws.onmessage = function(e) {

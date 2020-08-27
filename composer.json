@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.5.9",
+        "php": ">=7.0",
         "laravel/framework": "5.2.*",
         "doctrine/dbal": "2.5.*",
         "lokielse/omnipay-alipay": "^3.0",
@@ -15,7 +15,8 @@
         "qiniu/php-sdk": "^7.2",
         "pusher/pusher-php-server": "~3.0",
         "jaeger/querylist": "^4.2",
-        "workerman/workerman": "^3.5"
+        "workerman/workerman": "^3.5",
+        "elasticsearch/elasticsearch": "~7.8"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -27,6 +28,9 @@
     "autoload": {
         "classmap": [
             "database"
+        ],
+        "files": [
+            "app/functions.php"
         ],
         "psr-4": {
             "App\\": "app/"
