@@ -3,6 +3,6 @@
 /public/storage
 Homestead.yaml
 Homestead.json
-/vendor
-/.idea
+/vendor/
+/.idea/
 composer.lock
