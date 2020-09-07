@@ -9,6 +9,10 @@ use Workerman\Worker;
 
 class WorkerManController extends Controller
 {
+    //todo
+    /*
+     * 服务器 lnmp 搭建 https://blog.csdn.net/qq_29058883/article/details/79130340
+     * */
 
     //废弃  console 中开启
 //    public function start(Request $request)
